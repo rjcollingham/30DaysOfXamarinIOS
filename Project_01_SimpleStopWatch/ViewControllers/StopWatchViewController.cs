@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Timers;
 using CoreGraphics;
 using UIKit;
@@ -34,10 +35,10 @@ namespace Project_01_SimpleStopWatch
 
 			View.BackgroundColor = UIColor.FromRGBA(0.0346F,0.018F,0.18F,1);
 
-			UIView vwTop = new UIView(new CGRect(0,20,View.Bounds.Width,View.Bounds.Height/2.5-20));
+			UIView vwTop = new UIView();
 			vwTop.BackgroundColor = UIColor.FromWhiteAlpha(0.0F, 0.0F);
 
-			btnReset = new UIButton(new CGRect(View.Bounds.Width-100, 20, 68, 32));
+			btnReset = new UIButton();
 			btnReset.SetTitle("Reset", UIControlState.Normal);
 			btnReset.BackgroundColor = UIColor.FromWhiteAlpha(0.0F, 0.0F);
 			btnReset.Font = UIFont.FromName("AvenirNext-Regular", 14f);
@@ -46,7 +47,7 @@ namespace Project_01_SimpleStopWatch
 			btnReset.Enabled = false;
 			btnReset.TouchUpInside += Reset_Clicked;
 
-			lblTime = new UILabel(new CGRect(0, 48.5, vwTop.Bounds.Width, vwTop.Bounds.Height-100));
+			lblTime = new UILabel();
 			lblTime.LineBreakMode = UILineBreakMode.TailTruncation;
 			lblTime.Font = UIFont.FromName("AvenirNext-UltraLight", 100f);
 			lblTime.TextColor = UIColor.White;
@@ -56,7 +57,7 @@ namespace Project_01_SimpleStopWatch
 			vwTop.Add(btnReset);
 			vwTop.Add(lblTime);
 
-			btnPause = new UIButton(new CGRect(View.Bounds.Width/2, vwTop.Bounds.Height, View.Bounds.Width / 2, View.Bounds.Height - vwTop.Bounds.Height));
+			btnPause = new UIButton();
 			btnPause.HorizontalAlignment = UIControlContentHorizontalAlignment.Center;
 			btnPause.VerticalAlignment = UIControlContentVerticalAlignment.Center;
 			btnPause.BackgroundColor = UIColor.FromRGBA(0.46F, 0.77F, 0.01F, 1);
@@ -65,7 +66,7 @@ namespace Project_01_SimpleStopWatch
 			btnPause.Enabled = false;
 			btnPause.TouchUpInside += Pause_Clicked;
 
-			btnPlay = new UIButton(new CGRect(0, vwTop.Bounds.Height, View.Bounds.Width / 2, View.Bounds.Height - vwTop.Bounds.Height));
+			btnPlay = new UIButton();
 			btnPlay.HorizontalAlignment = UIControlContentHorizontalAlignment.Center;
 			btnPlay.VerticalAlignment = UIControlContentVerticalAlignment.Center;
 			btnPlay.BackgroundColor = UIColor.FromRGBA(0.4F, 0.47F, 1, 1);
@@ -76,6 +77,44 @@ namespace Project_01_SimpleStopWatch
 			View.Add(vwTop);
 			View.Add(btnPause);
 			View.Add(btnPlay);
+
+			vwTop.TranslatesAutoresizingMaskIntoConstraints = false;
+			btnReset.TranslatesAutoresizingMaskIntoConstraints = false;
+			lblTime.TranslatesAutoresizingMaskIntoConstraints = false;
+			btnPlay.TranslatesAutoresizingMaskIntoConstraints = false;
+			btnPause.TranslatesAutoresizingMaskIntoConstraints = false;
+
+			var constraints = new[] {
+						 vwTop.TopAnchor.ConstraintEqualTo(View.TopAnchor),
+						 vwTop.LeadingAnchor.ConstraintEqualTo(View.LeadingAnchor),
+						 vwTop.TrailingAnchor.ConstraintEqualTo(View.TrailingAnchor),
+						 vwTop.HeightAnchor.ConstraintEqualTo(View.HeightAnchor,0.33F),
+				         vwTop.WidthAnchor.ConstraintEqualTo(View.WidthAnchor),
+
+						 btnReset.WidthAnchor.ConstraintEqualTo(68),
+				         btnReset.TopAnchor.ConstraintEqualTo(vwTop.TopAnchor, 20),
+				         btnReset.TrailingAnchor.ConstraintEqualTo(vwTop.TrailingAnchor, -20),
+
+				         lblTime.WidthAnchor.ConstraintEqualTo(vwTop.WidthAnchor),
+						 lblTime.TopAnchor.ConstraintEqualTo(vwTop.TopAnchor),
+						 lblTime.BottomAnchor.ConstraintEqualTo(vwTop.BottomAnchor),
+						 lblTime.LeadingAnchor.ConstraintEqualTo(vwTop.LeadingAnchor),
+						 lblTime.TrailingAnchor.ConstraintEqualTo(vwTop.TrailingAnchor),
+
+						 btnPlay.TopAnchor.ConstraintEqualTo(vwTop.BottomAnchor),
+						 btnPlay.LeadingAnchor.ConstraintEqualTo(View.LeadingAnchor),
+						 btnPlay.WidthAnchor.ConstraintEqualTo(View.WidthAnchor, 0.5F),
+						 btnPlay.BottomAnchor.ConstraintEqualTo(View.BottomAnchor),
+						 //btnPlay.TrailingAnchor.ConstraintEqualTo(btnPause.LeadingAnchor),
+
+						 btnPause.TopAnchor.ConstraintEqualTo(vwTop.BottomAnchor),
+						 btnPause.TrailingAnchor.ConstraintEqualTo(View.TrailingAnchor),
+						 btnPause.WidthAnchor.ConstraintEqualTo(View.WidthAnchor, 0.5F),
+						 btnPause.BottomAnchor.ConstraintEqualTo(View.BottomAnchor),
+						 //btnPause.LeadingAnchor.ConstraintEqualTo(btnPlay.TrailingAnchor)
+
+			};
+			NSLayoutConstraint.ActivateConstraints(constraints);
 		}
 
 		void Pause_Clicked(object sender, EventArgs e)
