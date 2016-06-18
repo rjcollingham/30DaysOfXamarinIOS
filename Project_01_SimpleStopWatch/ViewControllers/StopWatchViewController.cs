@@ -33,7 +33,7 @@ namespace Project_01_SimpleStopWatch
 
 			View.Frame = UIScreen.MainScreen.Bounds;
 
-			View.BackgroundColor = UIColor.FromRGBA(0.0346F,0.018F,0.18F,1);
+			View.BackgroundColor = UIColor.FromRGBA(0.0346F, 0.018F, 0.18F, 1);
 
 			UIView vwTop = new UIView();
 			vwTop.BackgroundColor = UIColor.FromWhiteAlpha(0.0F, 0.0F);
@@ -89,13 +89,13 @@ namespace Project_01_SimpleStopWatch
 						 vwTop.LeadingAnchor.ConstraintEqualTo(View.LeadingAnchor),
 						 vwTop.TrailingAnchor.ConstraintEqualTo(View.TrailingAnchor),
 						 vwTop.HeightAnchor.ConstraintEqualTo(View.HeightAnchor,0.33F),
-				         vwTop.WidthAnchor.ConstraintEqualTo(View.WidthAnchor),
+						 vwTop.WidthAnchor.ConstraintEqualTo(View.WidthAnchor),
 
 						 btnReset.WidthAnchor.ConstraintEqualTo(68),
-				         btnReset.TopAnchor.ConstraintEqualTo(vwTop.TopAnchor, 20),
-				         btnReset.TrailingAnchor.ConstraintEqualTo(vwTop.TrailingAnchor, -20),
+						 btnReset.TopAnchor.ConstraintEqualTo(vwTop.TopAnchor, 20),
+						 btnReset.TrailingAnchor.ConstraintEqualTo(vwTop.TrailingAnchor, -20),
 
-				         lblTime.WidthAnchor.ConstraintEqualTo(vwTop.WidthAnchor),
+						 lblTime.WidthAnchor.ConstraintEqualTo(vwTop.WidthAnchor),
 						 lblTime.TopAnchor.ConstraintEqualTo(vwTop.TopAnchor),
 						 lblTime.BottomAnchor.ConstraintEqualTo(vwTop.BottomAnchor),
 						 lblTime.LeadingAnchor.ConstraintEqualTo(vwTop.LeadingAnchor),
@@ -105,13 +105,11 @@ namespace Project_01_SimpleStopWatch
 						 btnPlay.LeadingAnchor.ConstraintEqualTo(View.LeadingAnchor),
 						 btnPlay.WidthAnchor.ConstraintEqualTo(View.WidthAnchor, 0.5F),
 						 btnPlay.BottomAnchor.ConstraintEqualTo(View.BottomAnchor),
-						 //btnPlay.TrailingAnchor.ConstraintEqualTo(btnPause.LeadingAnchor),
 
 						 btnPause.TopAnchor.ConstraintEqualTo(vwTop.BottomAnchor),
 						 btnPause.TrailingAnchor.ConstraintEqualTo(View.TrailingAnchor),
 						 btnPause.WidthAnchor.ConstraintEqualTo(View.WidthAnchor, 0.5F),
 						 btnPause.BottomAnchor.ConstraintEqualTo(View.BottomAnchor),
-						 //btnPause.LeadingAnchor.ConstraintEqualTo(btnPlay.TrailingAnchor)
 
 			};
 			NSLayoutConstraint.ActivateConstraints(constraints);
