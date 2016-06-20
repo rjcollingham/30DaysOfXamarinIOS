@@ -6,7 +6,7 @@ using UIKit;
 
 namespace Project_01_SimpleStopWatch
 {
-	public partial class StopWatchViewController : UIViewController
+	public class StopWatchViewController : UIViewController
 	{
 		UIButton btnReset;
 		UIButton btnPlay;
@@ -16,7 +16,7 @@ namespace Project_01_SimpleStopWatch
 
 		double Counter = 0.0;
 
-		public StopWatchViewController() : base("StopWatchViewController", null)
+		public StopWatchViewController() : base(null, null)
 		{
 			timer = new Timer(100);
 			timer.Elapsed += Time_Trigger;
