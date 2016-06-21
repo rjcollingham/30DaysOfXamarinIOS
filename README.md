@@ -10,4 +10,8 @@ This repository is my Xamarin iOS set of projects.
 
 ## [Project 01 - Simple Stop Watch](https://github.com/rjcollingham/30DaysOfXamarinIOS/tree/master/Project_01_SimpleStopWatch)
 
-![Simple Stop Watch iOS](https://github.com/rjcollingham/30DaysOfXamarinIOS/blob/master/Screenshots/01iOS.gif)
+![Simple Stop Watch iOS](https://github.com/rjcollingham/30DaysOfXamarinIOS/blob/master/Screenshots/01iOSs.gif)
+
+## [Project 02 - Custom Font](https://github.com/rjcollingham/30DaysOfXamarinIOS/tree/master/Project_02_CustomFont)
+
+![Custom Font iOS](https://github.com/rjcollingham/30DaysOfXamarinIOS/blob/master/Screenshots/02iOSs.gif)
